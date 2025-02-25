@@ -1,6 +1,9 @@
 
 package Watchtv;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
 
 
 public class Watch {
@@ -8,8 +11,6 @@ public class Watch {
     private int hour;
     private int minute;
     private int second;
-    private String name;
-
 
     
     public Watch(int hour, int minute, int second){
@@ -60,12 +61,10 @@ public class Watch {
     }
     
     
-    public void setlocaltime(String name){
-        this.name = name;
-        setTimezone(ZoneId.systemDefault());
-        
-        
+    public String getTimeZone(String zone) {
+        ZoneId id = ZoneId.of(zone);
+        ZonedDateTime DateTime = ZonedDateTime.now(id);
+        return DateTime.toString();
     }
-
     
 }
